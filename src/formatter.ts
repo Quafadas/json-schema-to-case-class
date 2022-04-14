@@ -95,9 +95,9 @@ const shouldWrapInOption = (param: ICaseClassDefParams, config: IConfigResolved)
  */
 const formatParamType = (param: ICaseClassDefParams, config: IConfigResolved): string => {
   if (config.generateEnumerations && param.enumeration && param.genericType) {
-    param.paramType += `[${getEnumerationTypeName(param.paramName)}.Value]`
+    param.paramType += `[${getEnumerationTypeName(param.paramName)}]`
   } else if (config.generateEnumerations && param.enumeration) {
-    param.paramType = `${getEnumerationTypeName(param.paramName)}.Value`;
+    param.paramType = `${getEnumerationTypeName(param.paramName)}`;
   } else {
     param.paramType += param.genericType ? `[${param.genericType}]` : '';
   }
@@ -119,9 +119,8 @@ const getEnumerationTypeName = (paramName: string): string => {
  */
 const buildEnumeration = (paramName: string, enumArray: Array<string|number>): any => {
   const enumName: string = getEnumerationTypeName(paramName);
-  return `object ${enumName} extends Enumeration {\n` +
-    `\tval ${enumArray.join(', ')} = Value\n` +
-    '}\n';
+  return `enum ${enumName} : \n` +
+    `\t case ${enumArray.join(', ')}\n`    
 };
 
 /**

@@ -157,8 +157,8 @@ describe('Function convert()', () => {
 
     const result = await convert(stringEnumSchema, config);
     expect(result).to.be.an('string');
-    expect(result).to.contain('object TxTypeEnum');
-    expect(result).to.contain('tx_type: Option[TxTypeEnum.Value]');
+    expect(result).to.contain('enum TxTypeEnum');
+    expect(result).to.contain('tx_type: Option[TxTypeEnum]');
 
   });
 
