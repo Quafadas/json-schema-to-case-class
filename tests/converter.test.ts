@@ -178,8 +178,8 @@ describe('Function convert()', () => {
 
     const result = await convert(arrayEnumSchema, config);
     expect(result).to.be.an('string');
-    expect(result).to.contain('object NumbersEnum');
-    expect(result).to.contain('numbers: Option[List[NumbersEnum.Value]]');
+    expect(result).to.contain('enum NumbersEnum');
+    expect(result).to.contain('numbers: Option[List[NumbersEnum]]');
 
   });
 

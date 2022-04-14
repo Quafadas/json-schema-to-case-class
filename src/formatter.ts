@@ -61,7 +61,7 @@ const generateCommentsFor = (strippedSchema: ICaseClassDef): string => {
  * Check if given parameter name should be wrapped in a backtick
  * @param paramName
  */
-const shouldAddBacktick = (paramName: string) : boolean => {
+const shouldAddBacktick = (paramName: string): boolean => {
   return reservedKeywords.includes(paramName) || invalidSymbols.some(s => paramName.includes(s));
 };
 
@@ -117,10 +117,10 @@ const getEnumerationTypeName = (paramName: string): string => {
  * @param paramName
  * @param enumArray
  */
-const buildEnumeration = (paramName: string, enumArray: Array<string|number>): any => {
+const buildEnumeration = (paramName: string, enumArray: Array<string | number>): any => {
   const enumName: string = getEnumerationTypeName(paramName);
   return `enum ${enumName} : \n` +
-    `\t case ${enumArray.join(', ')}\n`    
+    `\t case ${enumArray.join(', ')}\n`
 };
 
 /**
